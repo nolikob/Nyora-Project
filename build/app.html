@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <link rel="shortcut icon" href="/favicon.ico">
+    <title>React App</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"
+        integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    <link rel="stylesheet" href="css/app_style.css">
+    <script src="https://www.gstatic.com/firebasejs/3.9.0/firebase.js"></script>
+    <script>
+        var config = {
+            apiKey: "AIzaSyAG-KRTqRuqKfBeG62p-_d6OT0WihePpYs",
+            authDomain: "nyora-db.firebaseapp.com",
+            databaseURL: "https://nyora-db.firebaseio.com",
+            projectId: "nyora-db",
+            storageBucket: "nyora-db.appspot.com",
+            messagingSenderId: "967877967325"
+        };
+        firebase.initializeApp(config)
+    </script>
+    <link href="static/css/main.3136ba41.css" rel="stylesheet">
+</head>
+
+<body>
+    <header class="container-fluid" id="app_header">
+        <div class="hidden-xs"><img src="img/logo.png" alt="comp_logo" id="big_logo" class="span12"> <span id="active_user"></span> <button onclick="logout()"
+                class="col-xs-1 btn btn-default">Log Out</button></div>
+        <nav class="container navbar navbar-default visible-xs"><img src="img/logo.png" alt="comp_logo"> <button type="button" class="navbar-toggle collapsed" data-toggle="collapse"
+                data-target="#navbar"><span class="icon-bar"></span> <span class="icon-bar"></span> <span class="icon-bar"></span></button>
+            <div
+                class="col-xs-12 collapse navbar-collapse" id="navbar"><span id="active_user_mobile"></span> <button onclick="logout()" class="col-xs-12">Log Out</button></div>
+        </nav>
+    </header>
+    <div id="root"></div>
+    <footer>
+        <p class="align-middle">&copy; Copyright 2017</p>
+    </footer>
+    <script src="https://code.jquery.com/jquery-3.2.1.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
+        crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa"
+        crossorigin="anonymous"></script>
+    <script src="js/script.js" type="text/javascript"></script>
+    <script>
+        firebase.auth().onAuthStateChanged(function (e) {
+            "" !== e ? (document.getElementById("active_user").innerHTML = "Welcome, " + e.email, document.getElementById(
+                "active_user_mobile").innerHTML = "Welcome, " + e.email) : (document.getElementById(
+                "active_user").innerHTML = "Welcome, uknown one", document.getElementById(
+                "active_user_mobile").innerHTML = "Welcome, mobile unknown one")
+        })
+    </script>
+    <script type="text/javascript" src="static/js/main.78673c45.js"></script>
+    <script src="../js/detectingactivetab.js" type="text/javascript"></script>
+</body>
+
+</html>
